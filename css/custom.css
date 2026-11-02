@@ -1,0 +1,147 @@
+
+:root {
+    --background: #faf6f0;
+    --primary: #75453f;
+    --primary-hover: #59332f;
+    --text: #3f302b;
+    --light-brown: #eee0d1;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+}
+
+/* Навигация */
+
+.navbar {
+    background-color: #f0e5d8;
+    padding: 18px 0;
+}
+
+.navbar-brand {
+    color: var(--primary);
+    font-size: 24px;
+}
+
+.navbar-brand:hover {
+    color: var(--primary-hover);
+}
+
+.nav-link {
+    color: var(--text);
+    margin-left: 15px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary) !important;
+    font-weight: 600;
+}
+
+/* Главный баннер */
+
+.hero {
+    background-color: var(--light-brown);
+}
+
+.hero h1 {
+    color: var(--primary);
+}
+
+.hero img {
+    max-height: 340px;
+    object-fit: cover;
+}
+
+/* Кнопки */
+
+.btn-book {
+    background-color: var(--primary);
+    color: white;
+    border-radius: 8px;
+    padding: 10px 24px;
+    border: none;
+}
+
+.btn-book:hover {
+    background-color: var(--primary-hover);
+    color: white;
+}
+
+/* Заголовки */
+
+.section-title {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* Карточки книг */
+
+.book-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-card img {
+    height: 340px;
+    object-fit: contain;
+    background-color: #f5eee5;
+    padding: 15px;
+}
+
+.book-card .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.book-card .btn {
+    margin-top: auto;
+}
+
+.book-rating {
+    color: #c18b40;
+    font-size: 20px;
+}
+
+/* Книга дня */
+
+.book-of-day {
+    background-color: #f0e5d8;
+}
+
+.day-cover {
+    max-height: 300px;
+}
+
+/* Подвал */
+
+.site-footer {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Мобильные устройства */
+
+@media (max-width: 768px) {
+    .hero {
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .nav-link {
+        margin-left: 0;
+    }
+}
