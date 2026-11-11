@@ -124,12 +124,81 @@ body {
     max-height: 300px;
 }
 
-/* Подвал */
+/* Подвал сайта */
 
 .site-footer {
-    background-color: var(--primary);
-    color: white;
+    background-color: #f0e5d8;
+    color: #75453f;
 }
+
+.footer-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.footer-nav a,
+.footer-contacts a {
+    color: #75453f;
+    text-decoration: none;
+}
+
+.footer-nav a:hover,
+.footer-contacts a:hover {
+    text-decoration: underline;
+}
+
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.footer-slogan {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.footer-copyright {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.footer-heading {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.footer-contacts {
+    text-align: right;
+}
+
+.footer-contacts p {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+    .footer-center {
+        align-items: flex-start;
+        text-align: left;
+        gap: 12px;
+    }
+
+    .footer-contacts {
+        text-align: left;
+    }
+}
+
 
 /* Мобильные устройства */
 
@@ -282,4 +351,83 @@ body {
 #bookMessage {
     color: #75453f;
     font-weight: 500;
+}
+
+
+
+/* Кнопка наверх */
+
+.back-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 50px;
+    height: 50px;
+
+    background-color: #75453f;
+    color: white;
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 26px;
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1050;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.back-to-top:hover {
+    background-color: #59332f;
+}
+
+
+
+/* Закреплённый поиск книги */
+
+.catalog-filters {
+    position: sticky;
+    top: var(--navbar-height, 70px);
+    z-index: 1020;
+
+    background-color: #fffaf5;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Хлебные крошки */
+
+.breadcrumb {
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.breadcrumb-item a {
+    color: #75453f;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: #876c60;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #a58b7c;
 }

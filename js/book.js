@@ -139,6 +139,13 @@ if (book) {
         }
     }
 
+    // Хлебные крошки
+    const bookBreadcrumb = document.getElementById("bookBreadcrumb");
+
+    if (bookBreadcrumb) {
+        bookBreadcrumb.textContent = book.title;
+    }
+
     // Добавляем книгу или изменяем её статус
     function addToLibrary() {
         const library = loadLibrary();
