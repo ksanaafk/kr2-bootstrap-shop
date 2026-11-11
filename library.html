@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Моя библиотека — BookSpace</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="index.html">
+                BookSpace ヾ(＾-＾)ノ
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Открыть меню"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Главная
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalog.html">
+                            Каталог
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                           aria-current="page"
+                           href="library.html">
+                            Моя библиотека
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html">
+                            FAQ
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-5">
+        <div class="container">
+
+            <h1 class="section-title mb-3">
+                Моя библиотека
+            </h1>
+
+            <p class="mb-4">
+                Сохраняй любимые книги и отслеживай
+                свой прогресс чтения.
+            </p>
+
+            <!-- Добавление книги -->
+            <div class="library-panel p-4 mb-5">
+                <h2 class="h4 mb-3">
+                    Добавить книгу
+                </h2>
+
+                <div class="row g-3">
+
+                    <div class="col-12 col-md-5">
+                        <label for="bookSelect" class="form-label">
+                            Выбери книгу
+                        </label>
+
+                        <select id="bookSelect" class="form-select">
+                            <option value="">
+                                Выберите книгу
+                            </option>
+                            <option value="blizkie_ludi">
+                                Близкие люди
+                            </option>
+                            <option value="chelovek_v_poiskah_identichnosti">
+                                Человек в поисках идентичности
+                            </option>
+                            <option value="trevoga">
+                                Тревога
+                            </option>
+                            <option value="volya_k_smslu">
+                                Воля к смыслу
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <label for="statusSelect" class="form-label">
+                            Статус чтения
+                        </label>
+
+                        <select id="statusSelect" class="form-select">
+                            <option value="planned">
+                                Хочу прочитать
+                            </option>
+                            <option value="reading">
+                                Читаю
+                            </option>
+                            <option value="finished">
+                                Прочитано
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-12 col-md-3 d-flex align-items-end">
+                        <button
+                            id="addBookBtn"
+                            class="btn btn-book w-100"
+                            type="button"
+                        >
+                            Добавить
+                        </button>
+                    </div>
+
+                </div>
+
+                <p id="libraryMessage"
+                   class="mt-3 mb-0"
+                   role="status"
+                   aria-live="polite"></p>
+            </div>
+
+            <!-- Фильтр -->
+            <div class="mb-4">
+                <label for="libraryFilter" class="form-label">
+                    Показать книги
+                </label>
+
+                <select id="libraryFilter"
+                        class="form-select library-filter">
+                    <option value="all">Все книги</option>
+                    <option value="planned">Хочу прочитать</option>
+                    <option value="reading">Читаю</option>
+                    <option value="finished">Прочитано</option>
+                </select>
+            </div>
+
+            <!-- Счётчики -->
+            <div class="row g-3 mb-4">
+
+                <div class="col-12 col-md-4">
+                    <div class="library-stat p-3">
+                        <p class="mb-1">Хочу прочитать</p>
+                        <h2 id="plannedCount" class="h3 mb-0">0</h2>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="library-stat p-3">
+                        <p class="mb-1">Читаю</p>
+                        <h2 id="readingCount" class="h3 mb-0">0</h2>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="library-stat p-3">
+                        <p class="mb-1">Прочитано</p>
+                        <h2 id="finishedCount" class="h3 mb-0">0</h2>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Книги пользователя -->
+            <div class="row g-4" id="libraryContainer"></div>
+
+            <p id="emptyLibrary"
+               class="text-center py-5 d-none">
+                Здесь пока нет книг.
+                Добавь первую книгу в свою библиотеку!
+            </p>
+
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="site-footer py-4">
+        <div class="container text-center">
+            <p class="mb-1 fw-bold">BookSpace</p>
+            <p class="mb-0">
+                © 2026 BookSpace. Учебный проект.
+            </p>
+        </div>
+    </footer>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+    <script src="js/library.js"></script>
+
+</body>
+</html>

@@ -44,6 +44,7 @@ body {
 
 .hero {
     background-color: var(--light-brown);
+    background-image: linear-gradient(to left, #8b694e, #a2836a, #b99d88, #d0b8a6, #e7d4c6);
 }
 
 .hero h1 {
@@ -144,4 +145,45 @@ body {
     .nav-link {
         margin-left: 0;
     }
+}
+
+
+
+/* Моя библиотека */
+
+.library-panel {
+    background-color: #f0e5d8;
+    border-radius: 12px;
+}
+
+.library-stat {
+    background-color: #eee0d1;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.library-stat h2 {
+    color: #75453f;
+    font-weight: bold;
+}
+
+.library-filter {
+    max-width: 300px;
+}
+
+#libraryMessage {
+    color: #75453f;
+}
+
+#emptyLibrary {
+    color: #75453f;
+    font-size: 18px;
+}
+
+#libraryContainer .card-body {
+    gap: 8px;
+}
+
+#libraryContainer .btn {
+    width: 100%;
 }
