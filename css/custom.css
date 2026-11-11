@@ -239,3 +239,47 @@ body {
 .faq-info h2 {
     color: #75453f;
 }
+
+
+/* Страница подробной информации о книге */
+
+.book-back-link {
+    display: inline-block;
+    color: #75453f;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.book-back-link:hover {
+    text-decoration: underline;
+}
+
+.book-detail-image {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.book-detail-author {
+    font-size: 18px;
+}
+
+.book-description {
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+.book-actions {
+    background-color: #f0e5d8;
+    border-radius: 12px;
+    max-width: 500px;
+}
+
+#bookMessage {
+    color: #75453f;
+    font-weight: 500;
+}

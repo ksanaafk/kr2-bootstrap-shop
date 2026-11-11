@@ -19,6 +19,31 @@ const booksData = {
         title: "Воля к смыслу",
         author: "Виктор Франкл",
         image: "images/volya_k_smslu.jpg"
+    },
+    granatovi_braslet: {
+        title: "Гранатовый браслет. Сборник",
+        author: "Александр Куприн",
+        image: "images/granatovi_braslet.jpg"
+    },
+    skazka_o_saltane: {
+        title: "Сказка о царе Салтане",
+        author: "Александр Пушкин",
+        image: "images/skazka_o_saltane.jpg"
+    },
+    fiesta: {
+        title: "Фиеста (И восходит солнце)",
+        author: "Эрнест Хемингуэй",
+        image: "images/fiesta.jpg"
+    },
+    potomok: {
+        title: "Потомокъ. Князь мертвецов",
+        author: "Илона Волынская, Кирилл Кащеев",
+        image: "images/potomok.jpg"
+    },
+    grek: {
+        title: "Цирцея",
+        author: "Мадлен Миллер",
+        image: "images/grek.jpg"
     }
 };
 
