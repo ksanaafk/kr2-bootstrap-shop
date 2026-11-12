@@ -40,21 +40,57 @@ body {
     font-weight: 600;
 }
 
-/* Главный баннер */
 
-.hero {
-    background-color: var(--light-brown);
-    background-image: linear-gradient(to left, #8b694e, #a2836a, #b99d88, #d0b8a6, #e7d4c6);
+/* Баннер главной страницы */
+
+.home-banner {
+    min-height: 430px;
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(42, 26, 22, 0.82),
+            rgba(42, 26, 22, 0.20)
+        ),
+        url("../images/kot_i_mech.jpg");
+
+    background-position: center 70% 40%;
 }
 
-.hero h1 {
-    color: var(--primary);
+.home-banner .page-banner-content {
+    padding: 85px 0;
 }
 
-.hero img {
-    max-height: 340px;
-    object-fit: cover;
+.home-banner .page-banner-content p {
+    margin-bottom: 28px;
 }
+
+/* Кнопка главного баннера */
+
+.home-banner-btn {
+    background-color: #f0e5d8;
+    color: #75453f;
+    border-radius: 30px;
+    padding: 12px 28px;
+    font-weight: 700;
+}
+
+.home-banner-btn:hover {
+    background-color: #ffffff;
+    color: #75453f;
+}
+
+/* Адаптация */
+
+@media (max-width: 767px) {
+    .home-banner {
+        min-height: 350px;
+    }
+
+    .home-banner .page-banner-content {
+        padding: 60px 0;
+    }
+}
+
 
 /* Кнопки */
 
@@ -124,80 +160,6 @@ body {
     max-height: 300px;
 }
 
-/* Подвал сайта */
-
-.site-footer {
-    background-color: #f0e5d8;
-    color: #75453f;
-}
-
-.footer-title {
-    font-size: 28px;
-    font-weight: 800;
-    margin-bottom: 15px;
-}
-
-.footer-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-}
-
-.footer-nav a,
-.footer-contacts a {
-    color: #75453f;
-    text-decoration: none;
-}
-
-.footer-nav a:hover,
-.footer-contacts a:hover {
-    text-decoration: underline;
-}
-
-.footer-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-}
-
-.footer-slogan {
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.footer-copyright {
-    font-size: 14px;
-    margin-bottom: 0;
-}
-
-.footer-heading {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.footer-contacts {
-    text-align: right;
-}
-
-.footer-contacts p {
-    margin-bottom: 10px;
-}
-
-@media (max-width: 767px) {
-    .footer-center {
-        align-items: flex-start;
-        text-align: left;
-        gap: 12px;
-    }
-
-    .footer-contacts {
-        text-align: left;
-    }
-}
 
 
 /* Мобильные устройства */
@@ -257,56 +219,116 @@ body {
     width: 100%;
 }
 
+/* для анимации цифр */
 
-
-/* FAQ */
-
-.faq-accordion {
-    max-width: 850px;
-    margin: 0 auto;
+#plannedCount,
+#readingCount,
+#finishedCount {
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+    transition: color 5.0s ease;
 }
 
-.faq-accordion .accordion-item {
-    border: 1px solid #dfcbb9;
-    margin-bottom: 12px;
-    border-radius: 10px;
-    overflow: hidden;
-}
+/* Подвал сайта */
 
-.faq-accordion .accordion-button {
+.site-footer {
     background-color: #f0e5d8;
     color: #75453f;
+    padding: 40px 0 20px;
+}
+
+.footer-main {
+    align-items: start;
+}
+
+/* Левый столбец */
+
+.footer-brand {
+    text-align: left;
+}
+
+.footer-brand .footer-heading {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.footer-description {
+    font-size: 20px;
     font-weight: 600;
-    padding: 20px;
+    margin-bottom: 0;
 }
 
-.faq-accordion .accordion-button:not(.collapsed) {
-    background-color: #e6d1bd;
+/* Центральный столбец */
+
+.footer-navigation {
+    text-align: center;
+}
+
+.footer-navigation ul {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.footer-navigation li {
+    margin-bottom: 8px;
+}
+
+/* Правый столбец */
+
+.footer-contacts {
+    text-align: left;
+}
+
+.footer-contacts p {
+    margin-bottom: 12px;
+}
+
+/* Общие стили */
+
+.footer-heading {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.footer-navigation a,
+.footer-contacts a {
     color: #75453f;
-    box-shadow: none;
+    text-decoration: none;
 }
 
-.faq-accordion .accordion-button:focus {
-    box-shadow: 0 0 0 3px rgba(117, 69, 63, 0.2);
+.footer-navigation a:hover,
+.footer-contacts a:hover {
+    text-decoration: underline;
 }
 
-.faq-accordion .accordion-body {
-    background-color: #fffaf5;
-    color: #4e3b35;
-    padding: 20px;
-    line-height: 1.7;
+/* Нижняя строка */
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(117, 69, 63, 0.2);
 }
 
-.faq-info {
-    background-color: #f0e5d8;
-    border-radius: 12px;
-    max-width: 850px;
-    margin-left: auto;
-    margin-right: auto;
+.footer-bottom p {
+    font-size: 14px;
+    margin-bottom: 0;
+    white-space: nowrap;
 }
 
-.faq-info h2 {
-    color: #75453f;
+/* Адаптивность */
+
+@media (max-width: 767px) {
+    .footer-navigation,
+    .footer-contacts {
+        text-align: left;
+    }
+
+    .footer-bottom p {
+        white-space: normal;
+    }
 }
 
 
@@ -430,4 +452,446 @@ body {
 
 .breadcrumb-item + .breadcrumb-item::before {
     color: #a58b7c;
+}
+
+
+
+/* Страница «О проекте» */
+
+/* Приветственный блок */
+
+.about-hero {
+    padding: 65px 35px;
+    background-color: #f8f0e8;
+    border-radius: 24px;
+}
+
+.about-label {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #a8786e;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.about-title {
+    color: #75453f;
+    font-size: clamp(36px, 4vw, 58px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.about-title span {
+    display: block;
+    color: #b77e73;
+}
+
+.about-intro {
+    color: #75453f;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.about-hero-btn {
+    background-color: #75453f;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 13px 28px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.about-hero-btn:hover {
+    background-color: #5d342f;
+    color: #ffffff;
+}
+
+.about-hero-image img {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Адаптивность */
+
+@media (max-width: 767px) {
+    .about-hero {
+        padding: 35px 20px;
+    }
+
+    .about-hero-image img {
+        height: 300px;
+    }
+}
+
+
+/* Возможности BookSpace */
+
+.about-features {
+    padding: 55px 0;
+}
+
+.about-section-heading {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 40px;
+}
+
+.about-section-heading h2 {
+    color: #75453f;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.about-section-heading p {
+    color: #87635c;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.about-feature-card {
+    background-color: #fffaf5;
+    border: 1px solid #eadbd0;
+    border-radius: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.about-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(117, 69, 63, 0.12);
+}
+
+.about-feature-card .card-body {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-feature-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.about-feature-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background-color: #f0e5d8;
+    color: #75453f;
+    font-size: 28px;
+}
+
+.about-feature-number {
+    color: #c8a79c;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.about-feature-card h3 {
+    color: #75453f;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.about-feature-card p {
+    color: #87635c;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.about-feature-link {
+    color: #75453f;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: auto;
+}
+
+.about-feature-link:hover {
+    color: #b77e73;
+}
+
+.about-feature-link i {
+    margin-left: 8px;
+}
+
+
+/* Как пользоваться BookSpace */
+
+.about-steps {
+    padding: 50px 0;
+}
+
+.about-step {
+    margin-bottom: 65px;
+}
+
+.about-step-content {
+    padding: 20px 35px;
+}
+
+.about-step-number {
+    display: block;
+    color: #c8a79c;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.about-step-content h3 {
+    color: #75453f;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.about-step-content p {
+    color: #87635c;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+
+/* Иллюстрации раздела "Как пользоваться BookSpace" */
+
+.about-step-visual,
+.about-step-visual-alt {
+    min-height: 310px;
+    padding: 16px;
+    border-radius: 24px;
+    background-color: #f5e7d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.about-step-image {
+    display: block;
+    width: 100%;
+    max-width: 440px;
+    height: 290px;
+    object-fit: contain;
+    border-radius: 16px;
+}
+
+@media (max-width: 767px) {
+    .about-step-visual,
+    .about-step-visual-alt {
+        min-height: 230px;
+    }
+
+    .about-step-image {
+        height: 220px;
+    }
+}
+
+
+/* FAQ на главной странице */
+
+.faq-section {
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.faq-label {
+    color: #a8786e;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.faq-title {
+    color: #75453f;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 800;
+    margin-top: 12px;
+}
+
+.faq-subtitle {
+    color: #87635c;
+    font-size: 17px;
+}
+
+.faq-accordion {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.faq-accordion .accordion-item {
+    background-color: #fffaf5;
+    border: 1px solid #eadbd0;
+    margin-bottom: 12px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.faq-accordion .accordion-button {
+    background-color: #fffaf5;
+    color: #75453f;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 20px 24px;
+    box-shadow: none;
+}
+
+.faq-accordion .accordion-button:not(.collapsed) {
+    background-color: #f0e5d8;
+    color: #75453f;
+    box-shadow: none;
+}
+
+.faq-accordion .accordion-button:focus {
+    box-shadow: 0 0 0 3px rgba(117, 69, 63, 0.2);
+}
+
+.faq-accordion .accordion-body {
+    color: #87635c;
+    line-height: 1.8;
+    padding: 20px 24px;
+}
+
+
+/* Технологии разработки */
+
+.about-technologies {
+    padding: 50px 0;
+}
+
+.about-tech-card {
+    background-color: #fffaf5;
+    border: 1px solid #eadbd0;
+    border-radius: 20px;
+    padding: 35px 25px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.about-tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(117, 69, 63, 0.12);
+}
+
+.about-tech-icon {
+    display: block;
+    color: #75453f;
+    font-size: 55px;
+    margin-bottom: 22px;
+}
+
+.about-tech-card h3 {
+    color: #75453f;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.about-tech-card p {
+    color: #87635c;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.about-tech-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.about-tech-card p {
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 390px;
+}
+
+/* Общий стиль баннеров */
+
+.page-banner {
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.page-banner-content {
+    max-width: 650px;
+    padding: 65px 0;
+    color: #ffffff;
+}
+
+.page-banner-label {
+    display: inline-block;
+    color: #e8c6b4;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.page-banner-content h1 {
+    color: #ffffff;
+    font-size: clamp(38px, 5vw, 60px);
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.page-banner-content p {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* Фотография каталога */
+
+.catalog-banner {
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(42, 26, 22, 0.82),
+            rgba(42, 26, 22, 0.20)
+        ),
+        url("../images/catalog-banner.jpg");
+}
+
+/* Фотография библиотеки */
+
+.library-banner {
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(42, 26, 22, 0.82),
+            rgba(42, 26, 22, 0.20)
+        ),
+        url("../images/library-banner.jpg");
+}
+
+/* Адаптация для телефонов */
+
+@media (max-width: 767px) {
+    .page-banner {
+        min-height: 300px;
+    }
+
+    .page-banner-content {
+        padding: 45px 0;
+    }
+
+    .page-banner-content p {
+        font-size: 16px;
+    }
 }

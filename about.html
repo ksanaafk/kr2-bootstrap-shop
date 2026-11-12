@@ -13,6 +13,10 @@
         rel="stylesheet"
     >
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
     <link rel="stylesheet" href="css/custom.css">
 </head>
 
@@ -60,12 +64,6 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="faq.html">
-                            FAQ
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
                         <a class="nav-link active"
                            aria-current="page"
                            href="about.html">
@@ -92,82 +90,165 @@
             </ol>
         </nav>
 
-        <h1 class="mb-4">О проекте BookSpace</h1>
 
-        <section class="mb-5">
-            <h2 class="mb-3">Что такое BookSpace?</h2>
+        <!-- Приветственный блок -->
+        <section class="about-hero mb-5">
+            <div class="row align-items-center g-5">
 
-            <p>
-                BookSpace — это веб-сайт для любителей книг,
-                который помогает находить интересную литературу,
-                знакомиться с новыми произведениями и создавать
-                собственную виртуальную библиотеку.
-            </p>
+                <div class="col-12 col-lg-6">
+                    <span class="about-label">
+                        ДОБРО ПОЖАЛОВАТЬ В BOOKSPACE
+                    </span>
 
-            <p>
-                Проект объединяет каталог книг, подробную информацию
-                о произведениях и инструменты для отслеживания
-                личного читательского прогресса.
-            </p>
+                    <h1 class="about-title">
+                        У каждой книги есть история.
+                        <span>У тебя — своя.</span>
+                    </h1>
+
+                    <p class="about-intro">
+                        BookSpace — пространство для тех, кто любит
+                        читать, открывать новые истории и сохранять
+                        любимые произведения в одном месте.
+                    </p>
+
+                    <p class="about-intro">
+                        Исследуй каталог, находи интересные книги
+                        и создавай собственную библиотеку,
+                        которая будет расти вместе с тобой.
+                    </p>
+
+                    <a href="catalog.html" class="btn about-hero-btn">
+                        Исследовать каталог
+                        <i class="bi bi-arrow-right ms-2"
+                        aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="about-hero-image">
+                        <img
+                            src="images/about-hero.jpg"
+                            alt="Уютное пространство для чтения книг"
+                            class="img-fluid"
+                        >
+                    </div>
+                </div>
+
+            </div>
         </section>
 
-        <section class="mb-5">
-            <h2 class="mb-4">Возможности сайта</h2>
+
+
+        <!-- Возможности сайта -->
+        <section class="about-features mb-5">
+
+            <div class="about-section-heading">
+                <span class="about-label">ВОЗМОЖНОСТИ BOOKSPACE</span>
+                <h2>Всё для твоей книжной коллекции</h2>
+                <p>
+                    От поиска интересной истории до собственной библиотеки —
+                    BookSpace помогает организовать чтение.
+                </p>
+            </div>
 
             <div class="row g-4">
 
                 <div class="col-12 col-md-6">
-                    <div class="card h-100">
+                    <div class="card about-feature-card h-100">
                         <div class="card-body">
-                            <h3 class="h5 card-title">
-                                Каталог книг
-                            </h3>
-                            <p class="card-text">
-                                Просматривайте книги разных жанров,
-                                изучайте авторов и описания произведений.
+                            <div class="about-feature-top">
+                                <span class="about-feature-icon">
+                                    <i class="bi bi-book" aria-hidden="true"></i>
+                                </span>
+                                <span class="about-feature-number">01</span>
+                            </div>
+
+                            <h3 class="h4">Каталог книг</h3>
+                            <p>
+                                Открывай новые произведения, знакомься
+                                с авторами и изучай подробные описания
+                                книг разных жанров.
                             </p>
+
+                            <a href="catalog.html" class="about-feature-link">
+                                Смотреть каталог
+                                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <div class="card h-100">
+                    <div class="card about-feature-card h-100">
                         <div class="card-body">
-                            <h3 class="h5 card-title">
-                                Поиск и фильтрация
-                            </h3>
-                            <p class="card-text">
-                                Находите книги по названию или автору,
-                                а также выбирайте интересующий жанр.
+                            <div class="about-feature-top">
+                                <span class="about-feature-icon">
+                                    <i class="bi bi-search" aria-hidden="true"></i>
+                                </span>
+                                <span class="about-feature-number">02</span>
+                            </div>
+
+                            <h3 class="h4">Поиск и фильтрация</h3>
+                            <p>
+                                Находи книги по названию или автору
+                                и выбирай произведения по жанрам,
+                                которые тебе интересны.
                             </p>
+
+                            <a href="catalog.html" class="about-feature-link">
+                                Найти книгу
+                                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <div class="card h-100">
+                    <div class="card about-feature-card h-100">
                         <div class="card-body">
-                            <h3 class="h5 card-title">
-                                Личная библиотека
-                            </h3>
-                            <p class="card-text">
-                                Добавляйте книги в свою библиотеку
-                                и управляйте списком произведений.
+                            <div class="about-feature-top">
+                                <span class="about-feature-icon">
+                                    <i class="bi bi-bookmarks" aria-hidden="true"></i>
+                                </span>
+                                <span class="about-feature-number">03</span>
+                            </div>
+
+                            <h3 class="h4">Личная библиотека</h3>
+                            <p>
+                                Собирай собственную коллекцию книг
+                                и храни выбранные произведения
+                                в одном удобном месте.
                             </p>
+
+                            <a href="library.html" class="about-feature-link">
+                                Моя библиотека
+                                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-6">
-                    <div class="card h-100">
+                    <div class="card about-feature-card h-100">
                         <div class="card-body">
-                            <h3 class="h5 card-title">
-                                Статусы чтения
-                            </h3>
-                            <p class="card-text">
-                                Отмечайте книги как «Хочу прочитать»,
-                                «Читаю» или «Прочитано».
+                            <div class="about-feature-top">
+                                <span class="about-feature-icon">
+                                    <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                                </span>
+                                <span class="about-feature-number">04</span>
+                            </div>
+
+                            <h3 class="h4">Статусы чтения</h3>
+                            <p>
+                                Отмечай, что планируешь прочитать,
+                                что читаешь сейчас и какие книги
+                                уже закончены.
                             </p>
+
+                            <a href="library.html" class="about-feature-link">
+                                Управлять чтением
+                                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -175,83 +256,264 @@
             </div>
         </section>
 
-        <section class="mb-5">
-            <h2 class="mb-3">Технологии разработки</h2>
 
-            <p>
-                При создании BookSpace использовались
-                современные веб-технологии:
-            </p>
 
-            <ul>
-                <li>HTML5 — структура страниц сайта;</li>
-                <li>CSS3 — индивидуальное оформление;</li>
-                <li>Bootstrap 5.3.3 — сетка и компоненты интерфейса;</li>
-                <li>JavaScript — интерактивные возможности;</li>
-                <li>localStorage — сохранение личной библиотеки.</li>
-            </ul>
+        <!-- Как пользоваться BookSpace -->
+        <section class="about-steps mb-5">
+
+            <div class="about-section-heading">
+                <span class="about-label">ПРОСТО И УДОБНО</span>
+                <h2>Как пользоваться BookSpace?</h2>
+                <p>
+                    Всего три шага, чтобы собрать свою
+                    книжную коллекцию.
+                </p>
+            </div>
+
+            <!-- Шаг 1 -->
+            <div class="row align-items-center g-4 about-step">
+
+                <div class="col-12 col-md-6">
+                    <div class="about-step-content">
+                        <span class="about-step-number">01</span>
+                        <h3>Найди интересную книгу</h3>
+                        <p>
+                            Открой каталог и познакомься с произведениями
+                            разных жанров. Используй поиск по названию
+                            или автору, чтобы быстрее найти нужную книгу.
+                        </p>
+                        <a href="catalog.html" class="about-feature-link">
+                            Перейти в каталог
+                            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="about-step-visual">
+                        <img
+                            src="images/step-search.png"
+                            class="about-step-image"
+                            alt="Поиск новых книг"
+                        >
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Шаг 2 -->
+            <div class="row align-items-center g-4 about-step">
+
+                <div class="col-12 col-md-6 order-md-2">
+                    <div class="about-step-content">
+                        <span class="about-step-number">02</span>
+                        <h3>Добавь книгу в библиотеку</h3>
+                        <p>
+                            Открой подробную информацию о книге,
+                            выбери статус чтения и сохрани её
+                            в своей личной библиотеке.
+                        </p>
+                        <a href="library.html" class="about-feature-link">
+                            Открыть библиотеку
+                            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 order-md-1">
+                    <div class="about-step-visual about-step-visual-alt">
+                        <img
+                            src="images/step-library.png"
+                            class="about-step-image"
+                            alt="Личная книжная коллекция"
+                        >
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Шаг 3 -->
+            <div class="row align-items-center g-4 about-step">
+
+                <div class="col-12 col-md-6">
+                    <div class="about-step-content">
+                        <span class="about-step-number">03</span>
+                        <h3>Следи за своим чтением</h3>
+                        <p>
+                            Меняй статусы книг: «Хочу прочитать»,
+                            «Читаю» и «Прочитано». Смотри,
+                            сколько произведений находится
+                            в каждой категории.
+                        </p>
+                        <a href="library.html" class="about-feature-link">
+                            Мой читательский прогресс
+                            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="about-step-visual">
+                        <img
+                            src="images/step-progress.png"
+                            class="about-step-image"
+                            alt="Отслеживание прогресса чтения"
+                        >
+                    </div>
+                </div>
+
+            </div>
+
         </section>
 
-        <section class="mb-4">
-            <h2 class="mb-3">Цель проекта</h2>
 
-            <p>
-                Цель BookSpace — создать удобное пространство
-                для поиска книг и организации личного чтения.
-                Сайт разработан в рамках учебного проекта
-                с использованием Bootstrap.
-            </p>
+
+
+
+        <!-- Технологии разработки -->
+        <section class="about-technologies mb-5">
+
+            <div class="about-section-heading">
+                <span class="about-label">КАК СОЗДАН BOOKSPACE</span>
+                <h2>Технологии разработки</h2>
+                <p>
+                    Для создания BookSpace использованы технологии,
+                    которые отвечают за структуру, оформление
+                    и интерактивность сайта.
+                </p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="about-tech-card h-100">
+                        <i class="fa-brands fa-html5 about-tech-icon"></i>
+                        <h3>HTML5</h3>
+                        <p>
+                                HTML5 используется для создания структуры страниц
+                                BookSpace. С его помощью организованы навигационное
+                                меню, каталог книг, карточки произведений и формы.
+                                Семантические элементы делают разметку понятной
+                                и логичной.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="about-tech-card h-100">
+                        <i class="fa-brands fa-css3-alt about-tech-icon"></i>
+                        <h3>CSS3</h3>
+                        <p>
+                                CSS3 отвечает за визуальное оформление сайта.
+                                С его помощью создана единая коричнево-бежевая
+                                цветовая гамма, настроены шрифты, отступы,
+                                изображения и эффекты при наведении.
+                                Также стили адаптируют оформление под разные экраны.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="about-tech-card h-100">
+                        <i class="bi bi-bootstrap about-tech-icon"></i>
+                        <h3>Bootstrap 5.3.3</h3>
+                        <p>
+                                Bootstrap 5.3.3 используется для создания
+                                адаптивного интерфейса. Сетка Bootstrap помогает
+                                правильно располагать карточки книг и другие
+                                элементы на компьютерах и смартфонах.
+                                Также применяются готовые компоненты:
+                                навигационная панель, кнопки, формы и Accordion.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="about-tech-card h-100">
+                        <i class="fa-brands fa-js about-tech-icon"></i>
+                        <h3>JavaScript</h3>
+                        <p>
+                                JavaScript обеспечивает интерактивность BookSpace.
+                                Он позволяет искать книги по названию и автору,
+                                фильтровать каталог по жанрам, добавлять
+                                произведения в личную библиотеку, изменять
+                                их статусы и удалять из коллекции.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="about-tech-card h-100">
+                        <i class="bi bi-database about-tech-icon"></i>
+                        <h3>localStorage</h3>
+                        <p>
+                                localStorage используется для хранения данных
+                                личной библиотеки непосредственно в браузере.
+                                Благодаря этому выбранные книги и их статусы
+                                сохраняются после обновления или закрытия страницы.
+                                Для работы этой функции не требуется серверная база данных.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
         </section>
+
 
     </main>
 
-    <!-- Подвал -->
-    <footer class="site-footer py-4">
+    <footer class="site-footer">
         <div class="container">
-            <div class="row g-4">
+            <div class="row g-4 footer-main">
 
-                <div class="col-12 col-md-4">
-                    <h2 class="footer-title">BookSpace ヾ(＾-＾)ノ</h2>
-
-                    <nav class="footer-nav"
-                         aria-label="Навигация в подвале">
-                        <a href="index.html">Главная</a>
-                        <a href="catalog.html">Каталог</a>
-                        <a href="library.html">Моя библиотека</a>
-                        <a href="faq.html">FAQ</a>
-                        <a href="about.html">О проекте</a>
-                    </nav>
+                <div class="col-12 col-md-4 footer-brand">
+                    <h2 class="footer-heading">BookSpace ヾ(＾-＾)ノ</h2>
+                    <p class="footer-description">Твоя вселенная книг</p>
                 </div>
 
-                <div class="col-12 col-md-4 footer-center">
-                    <p class="footer-slogan">
-                        Твоя вселенная книг
-                    </p>
+                <div class="col-12 col-md-4 footer-navigation">
+                    <h2 class="footer-heading">Навигация</h2>
 
-                    <p class="footer-copyright">
-                        © 2026 BookSpace<br>
-                        Все права защищены.
-                    </p>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="library.html">Моя библиотека</a></li>
+                        <li><a href="about.html">О проекте</a></li>
+                    </ul>
                 </div>
 
                 <div class="col-12 col-md-4 footer-contacts">
                     <h2 class="footer-heading">Контакты</h2>
 
                     <p>
-                        Email:
-                        <a href="mailto:your-email@example.com">
+                        <i class="bi bi-envelope-fill me-2" aria-hidden="true"></i>
+                        <a href="mailto:swsw_ui@gmail.com">
                             swsw_ui@gmail.com
                         </a>
                     </p>
 
                     <p>
-                        Telegram:
-                        <a href="https://t.me/your_username">
+                        <i class="bi bi-telegram me-2" aria-hidden="true"></i>
+                        <a href="https://t.me/swsw_ui"
+                        target="_blank"
+                        rel="noopener noreferrer">
                             @swsw_ui
+                        </a>
+                    </p>
+                    <p>
+                        <i class="fa-brands fa-vk me-2" aria-hidden="true"></i>
+                        <a href="https://vk.com/ТВОЙ_ID"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                            @veriti_BookSpace
                         </a>
                     </p>
                 </div>
 
+            </div>
+
+            <div class="footer-bottom">
+                <p class="mb-0">© 2026 BookSpace. Все права защищены.</p>
             </div>
         </div>
     </footer>

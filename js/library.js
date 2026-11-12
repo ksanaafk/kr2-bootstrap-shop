@@ -40,10 +40,23 @@ const booksData = {
         author: "Илона Волынская, Кирилл Кащеев",
         image: "images/potomok.jpg"
     },
+
     grek: {
         title: "Цирцея",
         author: "Мадлен Миллер",
         image: "images/grek.jpg"
+    },
+
+    traveling: {
+        title: "Путешествие в Элевсин",
+        author: "Виктор Олегович Пелевин",
+        image: "images/traveling.jpg"
+    },
+
+    sinistra: {
+        title: "A Sinistra | А Синистра | Левый Путь",
+        author: "Виктор Олегович Пелевин",
+        image: "images/sinistra.jpg"
     }
 };
 
@@ -135,16 +148,63 @@ function removeBook(id) {
     showMessage("Книга удалена из библиотеки.");
 }
 
-function updateCounters() {
-    document.getElementById("plannedCount").textContent =
-        library.filter(book => book.status === "planned").length;
 
-    document.getElementById("readingCount").textContent =
-        library.filter(book => book.status === "reading").length;
+function animateCounter(element, target) {
+    const start = Number(element.textContent) || 0;
+    const duration = 500;
+    const startTime = performance.now();
 
-    document.getElementById("finishedCount").textContent =
-        library.filter(book => book.status === "finished").length;
+    function update(currentTime) {
+        const progress = Math.min(
+            (currentTime - startTime) / duration,
+            1
+        );
+
+        const value = Math.round(
+            start + (target - start) * progress
+        );
+
+        element.textContent = value;
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+
+    requestAnimationFrame(update);
 }
+
+
+
+function updateCounters() {
+    const planned = library.filter(
+        book => book.status === "planned"
+    ).length;
+
+    const reading = library.filter(
+        book => book.status === "reading"
+    ).length;
+
+    const finished = library.filter(
+        book => book.status === "finished"
+    ).length;
+
+    animateCounter(
+        document.getElementById("plannedCount"),
+        planned
+    );
+
+    animateCounter(
+        document.getElementById("readingCount"),
+        reading
+    );
+
+    animateCounter(
+        document.getElementById("finishedCount"),
+        finished
+    );
+}
+
 
 function renderLibrary() {
     libraryContainer.innerHTML = "";
