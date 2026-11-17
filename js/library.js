@@ -57,7 +57,26 @@ const booksData = {
         title: "A Sinistra | А Синистра | Левый Путь",
         author: "Виктор Олегович Пелевин",
         image: "images/sinistra.jpg"
+    },
+
+    "48": {
+        title: "48 законов власти",
+        author: "Роберт Грин",
+        image: "images/48.jpg"
+    },
+
+    derzki: {
+        title: "Дерзкий Уайлдер",
+        author: "Ребекка Яррос",
+        image: "images/derzki.jpg"
+    },
+
+    vnutre_opora: {
+        title: "Внутренняя опора. В любой ситуации возвращайтесь к себе",
+        author: "Анна Бабич",
+        image: "images/vnutre_opora.jpg"
     }
+
 };
 
 const statusNames = {
@@ -117,7 +136,12 @@ function addBook() {
         return;
     }
 
-    library.push({ id, status });
+    library.push({
+        id,
+        status,
+        totalPages: 0,
+        currentPage: 0
+    });
 
     saveLibrary();
     renderLibrary();
@@ -139,6 +163,43 @@ function changeStatus(id, newStatus) {
         renderLibrary();
     }
 }
+
+
+function updateReadingProgress(id, totalPages, currentPage) {
+
+    const book = library.find(item => item.id === id);
+
+    if (!book) {
+        return;
+    }
+
+    totalPages = Number(totalPages);
+    currentPage = Number(currentPage);
+
+    // Проверяем корректность введённых значений
+    if (
+        !Number.isInteger(totalPages) ||
+        !Number.isInteger(currentPage) ||
+        totalPages <= 0 ||
+        currentPage < 0 ||
+        currentPage > totalPages
+    ) {
+        showMessage(
+            "Проверь количество страниц. Прочитанных страниц не может быть больше общего количества."
+        );
+        return;
+    }
+
+    // Сохраняем прогресс
+    book.totalPages = totalPages;
+    book.currentPage = currentPage;
+
+    saveLibrary();
+    renderLibrary();
+
+    showMessage("Прогресс чтения сохранён!");
+}
+
 
 function removeBook(id) {
     library = library.filter(book => book.id !== id);
@@ -175,8 +236,11 @@ function animateCounter(element, target) {
 }
 
 
-
 function updateCounters() {
+
+    // Количество книг по статусам
+    const total = library.length;
+
     const planned = library.filter(
         book => book.status === "planned"
     ).length;
@@ -188,6 +252,36 @@ function updateCounters() {
     const finished = library.filter(
         book => book.status === "finished"
     ).length;
+
+    // Статистика прочитанных страниц
+    let readPages = 0;
+    let totalPages = 0;
+
+    library.forEach(book => {
+
+        const total = Number(book.totalPages) || 0;
+        const current = Number(book.currentPage) || 0;
+
+        if (total > 0) {
+            totalPages += total;
+            readPages += Math.min(
+                Math.max(current, 0),
+                total
+            );
+        }
+
+    });
+
+    // Общий процент чтения
+    const overallProgress = totalPages > 0
+        ? Math.round(readPages / totalPages * 100)
+        : 0;
+
+    // Анимация всех шести показателей
+    animateCounter(
+        document.getElementById("totalBooksStat"),
+        total
+    );
 
     animateCounter(
         document.getElementById("plannedCount"),
@@ -203,6 +297,87 @@ function updateCounters() {
         document.getElementById("finishedCount"),
         finished
     );
+
+    animateCounter(
+        document.getElementById("readPagesStat"),
+        readPages
+    );
+
+    animateCounter(
+        document.getElementById("overallProgressStat"),
+        overallProgress
+    );
+
+    // Обновляем диаграмму
+    updateReadingChart(planned, reading, finished);
+}
+
+
+function updateReadingChart(planned, reading, finished) {
+
+    const chart = document.getElementById("readingStatsChart");
+    const legend = document.getElementById("readingStatsLegend");
+
+    if (!chart || !legend) {
+        return;
+    }
+
+    chart.innerHTML = "";
+    legend.innerHTML = "";
+
+    const total = planned + reading + finished;
+
+    const statuses = [
+        {
+            name: "Хочу прочитать",
+            count: planned,
+            color: "#c4a18a"
+        },
+        {
+            name: "Читаю",
+            count: reading,
+            color: "#a77b63"
+        },
+        {
+            name: "Прочитано",
+            count: finished,
+            color: "#75453f"
+        }
+    ];
+
+    statuses.forEach(status => {
+
+        // Часть диаграммы
+        const segment = document.createElement("div");
+
+        const percent = total > 0
+            ? status.count / total * 100
+            : 0;
+
+        segment.style.width = `${percent}%`;
+        segment.style.backgroundColor = status.color;
+
+        segment.title =
+            `${status.name}: ${status.count} (${percent.toFixed(1)}%)`;
+
+        chart.appendChild(segment);
+
+        // Элемент легенды
+        const legendItem = document.createElement("div");
+        legendItem.className = "reading-stats-legend-item";
+
+        const color = document.createElement("span");
+        color.className = "reading-stats-legend-color";
+        color.style.backgroundColor = status.color;
+
+        const text = document.createElement("span");
+        text.textContent =
+            `${status.name}: ${status.count}`;
+
+        legendItem.append(color, text);
+        legend.appendChild(legendItem);
+
+    });
 }
 
 
@@ -266,6 +441,93 @@ function renderLibrary() {
             changeStatus(book.id, select.value);
         });
 
+        /* ========================================
+        ДНЕВНИК ЧТЕНИЯ
+        ======================================== */
+
+        const progressSection = document.createElement("div");
+        progressSection.className = "reading-progress-section mb-3";
+
+        const progressTitle = document.createElement("h4");
+        progressTitle.className = "h6 mb-3";
+        progressTitle.textContent = "Прогресс чтения";
+
+        // Общее количество страниц
+        const totalLabel = document.createElement("label");
+        totalLabel.className = "form-label";
+        totalLabel.textContent = "Всего страниц";
+
+        const totalInput = document.createElement("input");
+        totalInput.type = "number";
+        totalInput.className = "form-control mb-3";
+        totalInput.min = "1";
+        totalInput.step = "1";
+        totalInput.placeholder = "Например, 300";
+        totalInput.value = book.totalPages || "";
+
+        // Количество прочитанных страниц
+        const currentLabel = document.createElement("label");
+        currentLabel.className = "form-label";
+        currentLabel.textContent = "Прочитано страниц";
+
+        const currentInput = document.createElement("input");
+        currentInput.type = "number";
+        currentInput.className = "form-control mb-3";
+        currentInput.min = "0";
+        currentInput.step = "1";
+        currentInput.placeholder = "Например, 120";
+        currentInput.value = book.currentPage ?? 0;
+
+        // Вычисляем процент прочитанного
+        const totalPages = Number(book.totalPages) || 0;
+        const currentPage = Number(book.currentPage) || 0;
+
+        const percent = totalPages > 0
+            ? Math.min(100, Math.round(currentPage / totalPages * 100))
+            : 0;
+
+        // Текст с процентом
+        const progressText = document.createElement("p");
+        progressText.className = "reading-progress-text mb-2";
+        progressText.textContent = `Прочитано: ${percent}%`;
+
+        // Полоска прогресса
+        const progressBar = document.createElement("div");
+        progressBar.className = "reading-progress-bar";
+
+        const progressFill = document.createElement("div");
+        progressFill.className = "reading-progress-fill";
+        progressFill.style.width = `${percent}%`;
+
+        progressBar.appendChild(progressFill);
+
+        // Кнопка сохранения
+        const saveProgressBtn = document.createElement("button");
+        saveProgressBtn.type = "button";
+        saveProgressBtn.className = "btn btn-book w-100 mt-3";
+        saveProgressBtn.textContent = "Сохранить прогресс";
+
+        saveProgressBtn.addEventListener("click", () => {
+            updateReadingProgress(
+                book.id,
+                totalInput.value,
+                currentInput.value
+            );
+        });
+
+        // Собираем блок
+        progressSection.append(
+            progressTitle,
+            totalLabel,
+            totalInput,
+            currentLabel,
+            currentInput,
+            progressText,
+            progressBar,
+            saveProgressBtn
+        );
+
+
         const details = document.createElement("a");
         details.href = "book.html?id=" + encodeURIComponent(book.id);
         details.className = "btn btn-outline-secondary mb-2";
@@ -279,7 +541,16 @@ function renderLibrary() {
             removeBook(book.id);
         });
 
-        body.append(title, author, label, select, details, removeButton);
+        body.append(
+            title,
+            author,
+            label,
+            select,
+            progressSection,
+            details,
+            removeButton
+        );
+
         card.append(image, body);
         column.appendChild(card);
         libraryContainer.appendChild(column);

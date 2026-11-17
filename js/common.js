@@ -39,3 +39,47 @@ function updateNavbarHeight() {
 
 window.addEventListener("resize", updateNavbarHeight);
 updateNavbarHeight();
+
+
+
+/* Переключение светлой и тёмной темы */
+
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = themeToggle?.querySelector("i");
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+
+    if (themeIcon) {
+        themeIcon.className = theme === "dark"
+            ? "bi bi-sun"
+            : "bi bi-moon-stars";
+    }
+
+    if (themeToggle) {
+        themeToggle.setAttribute(
+            "aria-label",
+            theme === "dark"
+                ? "Включить светлую тему"
+                : "Включить тёмную тему"
+        );
+    }
+}
+
+// Восстанавливаем сохранённую тему
+const savedTheme = localStorage.getItem("bookspaceTheme");
+
+applyTheme(savedTheme === "dark" ? "dark" : "light");
+
+// Обрабатываем нажатие на кнопку
+themeToggle?.addEventListener("click", () => {
+    const currentTheme =
+        document.documentElement.getAttribute("data-theme");
+
+    const newTheme = currentTheme === "dark"
+        ? "light"
+        : "dark";
+
+    applyTheme(newTheme);
+    localStorage.setItem("bookspaceTheme", newTheme);
+});

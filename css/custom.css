@@ -455,8 +455,9 @@ body {
 }
 
 
-
-/* Страница «О проекте» */
+/* ========================================
+   Страница «О проекте» 
+======================================== */
 
 /* Приветственный блок */
 
@@ -816,8 +817,10 @@ body {
     max-width: 390px;
 }
 
-/* Общий стиль баннеров */
 
+/* ========================================
+   Общий стиль баннеров
+======================================== */
 .page-banner {
     min-height: 360px;
     display: flex;
@@ -856,7 +859,7 @@ body {
     margin-bottom: 0;
 }
 
-/* Фотография каталога */
+/* Фотография каталога */ 
 
 .catalog-banner {
     background-image:
@@ -893,5 +896,945 @@ body {
 
     .page-banner-content p {
         font-size: 16px;
+    }
+}
+
+
+/* ========================================
+   Переключатель светлой и тёмной темы 
+======================================== */
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    color: #75453f;
+    background-color: #f0e5d8;
+    border: 1px solid #eadbd0;
+    border-radius: 50%;
+
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: #ffffff;
+    background-color: #75453f;
+    transform: rotate(15deg);
+}
+
+.theme-toggle:focus-visible {
+    box-shadow: 0 0 0 3px rgba(117, 69, 63, 0.25);
+}
+
+@media (max-width: 991px) {
+    .theme-toggle {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+}
+
+
+/* ========================================
+   ТЁМНАЯ ТЕМА 
+======================================== */
+
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+
+    --background: #211a19;
+    --primary: #d6b5a5;
+    --primary-hover: #f0d8c6;
+    --text: #eadbd0;
+    --light-brown: #392b29;
+
+    --bs-body-bg: #211a19;
+    --bs-body-color: #eadbd0;
+    --bs-secondary-color: #c6aaa0;
+    --bs-border-color: #624942;
+}
+
+/* Основной фон и текст */
+
+[data-theme="dark"] body {
+    background-color: #211a19;
+    color: #eadbd0;
+}
+
+[data-theme="dark"] main {
+    color: #eadbd0;
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] .section-title {
+    color: #f0d8c6;
+}
+
+[data-theme="dark"] p {
+    color: #d6b5a5;
+}
+
+[data-theme="dark"] .text-muted {
+    color: #c6aaa0 !important;
+}
+
+/* Навигация */
+
+[data-theme="dark"] .navbar {
+    background-color: #302321 !important;
+    border-bottom: 1px solid #624942;
+}
+
+[data-theme="dark"] .navbar-brand,
+[data-theme="dark"] .navbar .nav-link {
+    color: #f0d8c6 !important;
+}
+
+[data-theme="dark"] .navbar .nav-link:hover,
+[data-theme="dark"] .navbar .nav-link.active {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .navbar-toggler {
+    border-color: #a98b7f;
+}
+
+[data-theme="dark"] .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* Переключатель темы */
+
+[data-theme="dark"] .theme-toggle {
+    background-color: #624942;
+    color: #f0d8c6;
+    border-color: #82645a;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    background-color: #82645a;
+    color: #ffffff;
+}
+
+/* Карточки книг */
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .book-card {
+    background-color: #392b29;
+    color: #eadbd0;
+    border-color: #624942;
+}
+
+[data-theme="dark"] .card-body {
+    background-color: #392b29;
+    color: #eadbd0;
+}
+
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .card-text {
+    color: #f0d8c6;
+}
+
+/* Подложка вокруг обложек книг */
+
+[data-theme="dark"] .book-card img {
+    background-color: #302321;
+}
+
+/* Книга дня */
+
+[data-theme="dark"] .book-of-day {
+    background-color: #302321;
+    color: #eadbd0;
+}
+
+[data-theme="dark"] .book-of-day h2,
+[data-theme="dark"] .book-of-day h3 {
+    color: #f0d8c6;
+}
+
+[data-theme="dark"] .book-of-day p {
+    color: #d6b5a5;
+}
+
+/* Каталог: поиск и фильтры */
+
+[data-theme="dark"] .catalog-filters {
+    background-color: #392b29;
+    color: #eadbd0;
+    border: 1px solid #624942;
+}
+
+[data-theme="dark"] .form-label {
+    color: #eadbd0;
+}
+
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+    background-color: #302321;
+    color: #f0d8c6;
+    border-color: #82645a;
+}
+
+[data-theme="dark"] .form-control::placeholder {
+    color: #bfa69c;
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+    background-color: #392b29;
+    color: #ffffff;
+    border-color: #d6b5a5;
+    box-shadow: 0 0 0 3px rgba(214, 181, 165, 0.2);
+}
+
+[data-theme="dark"] .form-select option {
+    background-color: #302321;
+    color: #f0d8c6;
+}
+
+/* Моя библиотека: добавление книги */
+
+[data-theme="dark"] .library-panel {
+    background-color: #392b29;
+    color: #eadbd0;
+    border: 1px solid #624942;
+}
+
+/* Моя библиотека: статистика */
+
+[data-theme="dark"] .library-stat {
+    background-color: #392b29;
+    color: #eadbd0;
+    border: 1px solid #624942;
+}
+
+[data-theme="dark"] .library-stat h2 {
+    color: #f0d8c6;
+}
+
+[data-theme="dark"] .library-stat p {
+    color: #d6b5a5;
+}
+
+/* Сообщения библиотеки */
+
+[data-theme="dark"] #libraryMessage,
+[data-theme="dark"] #emptyLibrary {
+    color: #d6b5a5;
+}
+
+/* Страница подробной информации о книге */
+
+[data-theme="dark"] .book-actions {
+    background-color: #392b29;
+    color: #eadbd0;
+}
+
+[data-theme="dark"] #bookMessage,
+[data-theme="dark"] .book-back-link {
+    color: #e8c6b4;
+}
+
+[data-theme="dark"] .book-detail-author,
+[data-theme="dark"] .book-description {
+    color: #d6b5a5;
+}
+
+/* Кнопки */
+
+[data-theme="dark"] .btn-book,
+[data-theme="dark"] .about-hero-btn {
+    background-color: #a77b6d;
+    border-color: #a77b6d;
+    color: #211a19;
+}
+
+[data-theme="dark"] .btn-book:hover,
+[data-theme="dark"] .about-hero-btn:hover {
+    background-color: #d6b5a5;
+    border-color: #d6b5a5;
+    color: #211a19;
+}
+
+/* Хлебные крошки */
+
+[data-theme="dark"] .breadcrumb-item,
+[data-theme="dark"] .breadcrumb-item a {
+    color: #d6b5a5;
+}
+
+[data-theme="dark"] .breadcrumb-item.active {
+    color: #f0d8c6;
+}
+
+[data-theme="dark"]
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #a98b7f;
+}
+
+/* Страница "О проекте" */
+
+[data-theme="dark"] .about-hero,
+[data-theme="dark"] .about-step-visual,
+[data-theme="dark"] .about-step-visual-alt {
+    background-color: #392b29;
+}
+
+[data-theme="dark"] .about-title,
+[data-theme="dark"] .about-title span,
+[data-theme="dark"] .about-step-content h3,
+[data-theme="dark"] .about-section-heading h2 {
+    color: #f0d8c6;
+}
+
+[data-theme="dark"] .about-intro,
+[data-theme="dark"] .about-step-content p,
+[data-theme="dark"] .about-section-heading p {
+    color: #d6b5a5;
+}
+
+/* Карточки возможностей */
+
+[data-theme="dark"] .about-feature-card {
+    background-color: #392b29;
+    border-color: #624942;
+}
+
+[data-theme="dark"] .about-feature-card h3 {
+    color: #f0d8c6;
+}
+
+[data-theme="dark"] .about-feature-card p {
+    color: #d6b5a5;
+}
+
+[data-theme="dark"] .about-feature-icon {
+    background-color: #624942;
+    color: #f0d8c6;
+}
+
+[data-theme="dark"] .about-feature-number {
+    color: #c8a79c;
+}
+
+[data-theme="dark"] .about-feature-link {
+    color: #e8c6b4;
+}
+
+/* Карточки технологий */
+
+[data-theme="dark"] .about-tech-card {
+    background-color: #392b29;
+    border-color: #624942;
+}
+
+[data-theme="dark"] .about-tech-card h3 {
+    color: #f0d8c6;
+}
+
+[data-theme="dark"] .about-tech-card p {
+    color: #d6b5a5;
+}
+
+[data-theme="dark"] .about-tech-icon {
+    color: #d6b5a5;
+}
+
+/* FAQ */
+
+[data-theme="dark"] .faq-title {
+    color: #f0d8c6;
+}
+
+[data-theme="dark"] .faq-subtitle {
+    color: #d6b5a5;
+}
+
+[data-theme="dark"] .faq-accordion .accordion-item,
+[data-theme="dark"] .faq-accordion .accordion-button,
+[data-theme="dark"] .faq-accordion .accordion-body {
+    background-color: #392b29;
+    color: #f0d8c6;
+    border-color: #624942;
+}
+
+[data-theme="dark"]
+.faq-accordion .accordion-button:not(.collapsed) {
+    background-color: #624942;
+    color: #ffffff;
+}
+
+[data-theme="dark"]
+.faq-accordion .accordion-button::after {
+    filter: brightness(0) invert(1);
+}
+
+/* Стандартные светлые блоки Bootstrap */
+
+[data-theme="dark"] .bg-light,
+[data-theme="dark"] .bg-white {
+    background-color: #392b29 !important;
+    color: #eadbd0;
+}
+
+/* Подвал */
+
+[data-theme="dark"] .site-footer {
+    background-color: #302321;
+    color: #eadbd0;
+    border-top: 1px solid #624942;
+}
+
+[data-theme="dark"] .site-footer a,
+[data-theme="dark"] .site-footer p,
+[data-theme="dark"] .footer-heading {
+    color: #d6b5a5;
+}
+
+[data-theme="dark"] .footer-bottom {
+    border-top-color: #624942;
+}
+
+/* Баннеры: сохраняем белый текст */
+
+[data-theme="dark"] .page-banner-content h1,
+[data-theme="dark"] .page-banner-content p {
+    color: #ffffff;
+}
+
+/* Плавное переключение темы */
+
+body,
+.navbar,
+.card,
+.card-body,
+.book-card img,
+.book-of-day,
+.catalog-filters,
+.library-panel,
+.library-stat,
+.book-actions,
+.site-footer,
+.about-hero,
+.about-step-visual,
+.about-tech-card,
+.about-feature-card,
+.faq-accordion .accordion-item,
+.form-control,
+.form-select {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+
+/* ========================================
+   ОЦЕНКИ И ОТЗЫВЫ О КНИГАХ
+======================================== */
+
+/* Общий блок отзывов */
+
+.book-reviews {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+/* Средняя оценка книги */
+
+.reviews-summary {
+    background-color: #f0e5d8;
+    border-radius: 16px;
+    padding: 25px 30px;
+}
+
+.reviews-average {
+    font-size: 42px;
+    font-weight: 800;
+    color: #75453f;
+    margin-right: 15px;
+}
+
+.reviews-stars {
+    font-size: 28px;
+    color: #c18b40;
+    letter-spacing: 3px;
+}
+
+.reviews-count {
+    color: #87635c;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+/* Форма добавления отзыва */
+
+.review-form {
+    background-color: #fffaf5;
+    border: 1px solid #eadbd0;
+    border-radius: 16px;
+}
+
+.review-form h3 {
+    color: #75453f;
+}
+
+/* Интерактивные звёзды */
+
+.rating-input {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rating-input button {
+    background: transparent;
+    border: none;
+    padding: 0 3px;
+    font-size: 38px;
+    line-height: 1.2;
+    color: #c18b40;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.rating-input button:hover {
+    transform: scale(1.2);
+}
+
+.rating-input button:focus-visible {
+    outline: 2px solid #75453f;
+    border-radius: 5px;
+}
+
+/* Сообщение после отправки */
+
+#reviewMessage {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Список отзывов */
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Отдельная карточка отзыва */
+
+.review-card {
+    background-color: #fffaf5;
+    border: 1px solid #eadbd0;
+    border-radius: 16px;
+    padding: 25px;
+}
+
+.review-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.review-author {
+    font-size: 18px;
+    font-weight: 700;
+    color: #75453f;
+}
+
+.review-date {
+    font-size: 13px;
+    color: #87635c;
+}
+
+.review-card-stars {
+    color: #c18b40;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.review-card-text {
+    color: #3f302b;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* Кнопка удаления отзыва */
+
+.review-delete {
+    background: transparent;
+    border: 1px solid #b77e73;
+    color: #75453f;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.review-delete:hover {
+    background-color: #75453f;
+    color: #ffffff;
+}
+
+/* ========================================
+   ОТЗЫВЫ: ТЁМНАЯ ТЕМА
+======================================== */
+
+[data-theme="dark"] .reviews-summary {
+    background-color: #302321;
+}
+
+[data-theme="dark"] .reviews-average {
+    color: #f0d8c6;
+}
+
+[data-theme="dark"] .reviews-count {
+    color: #d6b5a5;
+}
+
+[data-theme="dark"] .review-form,
+[data-theme="dark"] .review-card {
+    background-color: #392b29;
+    border-color: #624942;
+}
+
+[data-theme="dark"] .review-form h3,
+[data-theme="dark"] .review-author {
+    color: #f0d8c6;
+}
+
+[data-theme="dark"] .review-date,
+[data-theme="dark"] .review-card-text {
+    color: #d6b5a5;
+}
+
+[data-theme="dark"] .review-delete {
+    color: #f0d8c6;
+    border-color: #a77b6d;
+}
+
+[data-theme="dark"] .review-delete:hover {
+    background-color: #a77b6d;
+    color: #211a19;
+}
+
+
+/* ========================================
+   РЕЙТИНГИ В КАТАЛОГЕ
+======================================== */
+
+.catalog-rating {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin-bottom: 18px;
+    font-size: 15px;
+}
+
+.catalog-rating-stars {
+    color: #c18b40;
+    font-size: 20px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.catalog-rating-value {
+    color: #75453f;
+    font-weight: 700;
+}
+
+.catalog-rating-count {
+    color: #87635c;
+    font-size: 13px;
+}
+
+.catalog-rating-empty {
+    color: #87635c;
+}
+
+/* Тёмная тема */
+
+[data-theme="dark"] .catalog-rating-value {
+    color: #f0d8c6;
+}
+
+[data-theme="dark"] .catalog-rating-count,
+[data-theme="dark"] .catalog-rating-empty {
+    color: #c6aaa0;
+}
+
+
+/* ========================================
+   ДНЕВНИК ЧТЕНИЯ
+======================================== */
+
+
+.reading-progress-section {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 18px;
+    margin: 0 0 16px;
+
+    background-color: #f8f0e8;
+    border: 1px solid #e5d4c6;
+    border-radius: 12px;
+}
+
+
+.reading-progress-section h4 {
+    color: #75453f;
+    font-weight: 600;
+}
+
+.reading-progress-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #75453f;
+}
+
+.reading-progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #e5d4c6;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.reading-progress-fill {
+    height: 100%;
+    background-color: #9b6b56;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+/* Тёмная тема */
+
+[data-theme="dark"] .reading-progress-section {
+    background-color: #392b29;
+    border-color: #624942;
+}
+
+[data-theme="dark"] .reading-progress-section h4,
+[data-theme="dark"] .reading-progress-text {
+    color: #f0d8c6;
+}
+
+[data-theme="dark"] .reading-progress-bar {
+    background-color: #624942;
+}
+
+[data-theme="dark"] .reading-progress-fill {
+    background-color: #c18b94;
+}
+
+
+/* ========================================
+   СТАТИСТИКА ЧТЕНИЯ
+======================================== */
+
+.reading-statistics .library-stat {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.reading-statistics .library-stat:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(80, 45, 35, 0.12);
+}
+
+.stat-icon {
+    font-size: 28px;
+    color: #9b6b56;
+}
+
+.reading-statistics .library-stat h3 {
+    font-weight: 700;
+    color: #75453f;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Диаграмма */
+
+.reading-stats-chart {
+    display: flex;
+    width: 100%;
+    height: 22px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #e5d4c6;
+}
+
+.reading-stats-chart > div {
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.reading-stats-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+}
+
+.reading-stats-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.reading-stats-legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Тёмная тема */
+
+[data-theme="dark"] .stat-icon {
+    color: #d6b5a5;
+}
+
+[data-theme="dark"] .reading-statistics .library-stat h3 {
+    color: #f0d8c6;
+}
+
+[data-theme="dark"] .reading-stats-chart {
+    background-color: #624942;
+}
+
+
+/* ========================================
+   ЕДИНЫЙ ВИД КАРТОЧЕК СТАТИСТИКИ
+======================================== */
+
+.reading-statistics .library-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 215px;
+}
+
+/* Иконки */
+.reading-statistics .stat-icon {
+    display: block;
+    font-size: 32px;
+    line-height: 1;
+    margin-bottom: 16px;
+}
+
+/* Числа */
+.reading-statistics .library-stat h3 {
+    display: block;
+    margin: 0 0 8px !important;
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+/* Подписи */
+.reading-statistics .library-stat p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+
+/* ========================================
+   РАНДОМАЙЗЕР КНИГ
+======================================== */
+
+.book-randomizer {
+    border-radius: 16px;
+}
+
+.random-book-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px;
+    border: 1px solid #e5d4c6;
+    border-radius: 12px;
+    background-color: #fffaf5;
+    animation: randomBookAppear 0.2s ease;
+}
+
+.random-book-image {
+    width: 110px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.random-book-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.random-book-info h3 {
+    color: #75453f;
+    font-weight: 700;
+}
+
+.random-book-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+@keyframes randomBookAppear {
+    from {
+        opacity: 0.4;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Тёмная тема */
+
+[data-theme="dark"] .random-book-card {
+    background-color: #302321;
+    border-color: #624942;
+}
+
+[data-theme="dark"] .random-book-info h3 {
+    color: #f0d8c6;
+}
+
+@media (max-width: 576px) {
+    .random-book-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .random-book-actions {
+        justify-content: center;
     }
 }

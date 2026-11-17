@@ -70,6 +70,18 @@
                         </a>
                     </li>                    
                 </ul>
+
+                <!-- Переключатель темы -->
+                <button
+                    type="button"
+                    class="btn theme-toggle ms-lg-3"
+                    id="themeToggle"
+                    aria-label="Переключить тему"
+                    title="Переключить тему"
+                >
+                    <i class="bi bi-moon-stars"></i>
+                </button>
+
             </div>
         </div>
     </nav>
@@ -114,6 +126,93 @@
                 Сохраняй любимые книги и отслеживай
                 свой прогресс чтения.
             </p>
+
+            <!-- Статистика чтения -->
+            <section class="reading-statistics mb-5">
+
+                <h2 class="section-title mb-4">
+                    Моя статистика
+                </h2>
+
+                <!-- Карточки статистики -->
+                <div class="row g-3 mb-4">
+
+                    <!-- Всего книг -->
+                    <div class="col-6 col-lg-4">
+                        <div class="library-stat p-4 h-100">
+                            <i class="bi bi-collection stat-icon"></i>
+                            <h3 class="h2 mt-3 mb-1" id="totalBooksStat">0</h3>
+                            <p class="mb-0">Всего книг</p>
+                        </div>
+                    </div>
+
+                    <!-- Хочу прочитать -->
+                    <div class="col-6 col-lg-4">
+                        <div class="library-stat p-4 h-100">
+                            <i class="bi bi-bookmark-heart stat-icon"></i>
+                            <h3 class="h2 mt-3 mb-1" id="plannedCount">0</h3>
+                            <p class="mb-0">Хочу прочитать</p>
+                        </div>
+                    </div>
+
+                    <!-- Читаю -->
+                    <div class="col-6 col-lg-4">
+                        <div class="library-stat p-4 h-100">
+                            <i class="bi bi-book stat-icon"></i>
+                            <h3 class="h2 mt-3 mb-1" id="readingCount">0</h3>
+                            <p class="mb-0">Читаю сейчас</p>
+                        </div>
+                    </div>
+
+                    <!-- Прочитано -->
+                    <div class="col-6 col-lg-4">
+                        <div class="library-stat p-4 h-100">
+                            <i class="bi bi-check-circle stat-icon"></i>
+                            <h3 class="h2 mt-3 mb-1" id="finishedCount">0</h3>
+                            <p class="mb-0">Прочитано книг</p>
+                        </div>
+                    </div>
+
+                    <!-- Прочитано страниц -->
+                    <div class="col-6 col-lg-4">
+                        <div class="library-stat p-4 h-100">
+                            <i class="bi bi-journal-text stat-icon"></i>
+                            <h3 class="h2 mt-3 mb-1" id="readPagesStat">0</h3>
+                            <p class="mb-0">Прочитано страниц</p>
+                        </div>
+                    </div>
+
+                    <!-- Общий прогресс -->
+                    <div class="col-6 col-lg-4">
+                        <div class="library-stat p-4 h-100">
+                            <i class="bi bi-graph-up-arrow stat-icon"></i>
+                            <h3 class="h2 mt-3 mb-1">
+                                <span id="overallProgressStat">0</span>%
+                            </h3>
+                            <p class="mb-0">Общий прогресс</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Диаграмма -->
+                <div class="library-panel p-4">
+
+                    <h3 class="h5 mb-3">
+                        Распределение книг по статусам
+                    </h3>
+
+                    <div class="reading-stats-chart"
+                        id="readingStatsChart">
+                    </div>
+
+                    <div class="reading-stats-legend mt-3"
+                        id="readingStatsLegend">
+                    </div>
+
+                </div>
+
+            </section>
 
             <!-- Добавление книги -->
             <div class="library-panel p-4 mb-5">
@@ -218,32 +317,6 @@
                     <option value="reading">Читаю</option>
                     <option value="finished">Прочитано</option>
                 </select>
-            </div>
-
-            <!-- Счётчики -->
-            <div class="row g-3 mb-4">
-
-                <div class="col-12 col-md-4">
-                    <div class="library-stat p-3">
-                        <p class="mb-1">Хочу прочитать</p>
-                        <h2 id="plannedCount" class="h3 mb-0">0</h2>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-4">
-                    <div class="library-stat p-3">
-                        <p class="mb-1">Читаю</p>
-                        <h2 id="readingCount" class="h3 mb-0">0</h2>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-4">
-                    <div class="library-stat p-3">
-                        <p class="mb-1">Прочитано</p>
-                        <h2 id="finishedCount" class="h3 mb-0">0</h2>
-                    </div>
-                </div>
-
             </div>
 
             <!-- Книги пользователя -->

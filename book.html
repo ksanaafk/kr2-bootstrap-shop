@@ -67,6 +67,18 @@
                         </a>
                     </li>                    
                 </ul>
+
+                <!-- Переключатель темы -->
+                <button
+                    type="button"
+                    class="btn theme-toggle ms-lg-3"
+                    id="themeToggle"
+                    aria-label="Переключить тему"
+                    title="Переключить тему"
+                >
+                    <i class="bi bi-moon-stars"></i>
+                </button>
+
             </div>
 
         </div>
@@ -187,6 +199,95 @@
             </div>
 
         </div>
+        
+        <!-- Отзывы о книге -->
+        <section class="book-reviews container my-5" id="bookReviews">
+
+            <h2 class="section-title mb-4">
+                Отзывы читателей
+            </h2>
+
+            <!-- Средняя оценка -->
+            <div class="reviews-summary mb-4">
+                <span class="reviews-average" id="averageRating">
+                    0.0
+                </span>
+
+                <span class="reviews-stars" id="averageStars">
+                    ☆☆☆☆☆
+                </span>
+
+                <p class="reviews-count" id="reviewsCount">
+                    Пока нет отзывов
+                </p>
+            </div>
+
+            <!-- Форма отзыва -->
+            <form id="reviewForm" class="review-form p-4 mb-5">
+
+                <h3 class="h5 mb-3">
+                    Оставить отзыв
+                </h3>
+
+                <div class="mb-3">
+                    <label class="form-label">
+                        Ваша оценка
+                    </label>
+
+                    <div class="rating-input" id="ratingInput">
+                        <button type="button" data-rating="1">☆</button>
+                        <button type="button" data-rating="2">☆</button>
+                        <button type="button" data-rating="3">☆</button>
+                        <button type="button" data-rating="4">☆</button>
+                        <button type="button" data-rating="5">☆</button>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="reviewName" class="form-label">
+                        Ваше имя
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="reviewName"
+                        maxlength="50"
+                        placeholder="Введите имя"
+                        required
+                    >
+                </div>
+
+                <div class="mb-3">
+                    <label for="reviewText" class="form-label">
+                        Ваш отзыв
+                    </label>
+
+                    <textarea
+                        class="form-control"
+                        id="reviewText"
+                        rows="4"
+                        maxlength="1000"
+                        placeholder="Поделитесь впечатлениями..."
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-book">
+                    Опубликовать отзыв
+                </button>
+
+                <p id="reviewMessage" class="mt-3" aria-live="polite"></p>
+
+            </form>
+
+            <!-- Список отзывов -->
+            <div class="reviews-list" id="reviewsList">
+                <p>Пока нет отзывов. Станьте первым!</p>
+            </div>
+
+        </section>
+
     </main>
 
 
@@ -264,6 +365,8 @@
     <script src="js/book.js"></script>
 
     <script src="js/common.js"></script>
+
+    <script src="js/reviews.js"></script>
 
 </body>
 </html>

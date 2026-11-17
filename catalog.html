@@ -72,6 +72,18 @@
                         </a>
                     </li>
                 </ul>
+
+                <!-- Переключатель темы -->
+                <button
+                    type="button"
+                    class="btn theme-toggle ms-lg-3"
+                    id="themeToggle"
+                    aria-label="Переключить тему"
+                    title="Переключить тему"
+                >
+                    <i class="bi bi-moon-stars"></i>
+                </button>
+
             </div>
         </div>
     </nav>
@@ -108,6 +120,35 @@
                 </ol>
             </nav>
 
+            <!-- Рандомайзер книг -->
+            <section class="book-randomizer library-panel p-4 mb-5">
+
+                <h2 class="h4 mb-2">
+                    <i class="bi bi-shuffle me-2"></i>
+                    Не знаешь, что почитать?
+                </h2>
+
+                <p class="mb-4">
+                    Позволь BookSpace выбрать следующую книгу за тебя!
+                    В подборке участвуют только книги,
+                    которых ещё нет в твоей библиотеке.
+                </p>
+
+                <!-- Случайно выбранная книга -->
+                <div id="randomBookResult" class="mb-3"></div>
+
+                <!-- Кнопка выбора -->
+                <button
+                    type="button"
+                    class="btn btn-book"
+                    id="randomBookBtn"
+                >
+                    <i class="bi bi-shuffle me-2"></i>
+                    Выбрать случайную книгу
+                </button>
+
+            </section>
+
             <p class="mb-4">
                 Найди книгу, которая тебе понравится!
             </p>
@@ -140,11 +181,29 @@
                         <option value="classics">Классика</option>
                         <option value="fantasy">Фантастика</option>
                         <option value="modern">Современная литература</option>
+                        <option value="nonfiction">Документальная литература</option>
+                        <option value="romance">Любовный роман</option>
                     </select>
 
                 </div>
 
+                <!-- Сортировка книг -->
+                <div class="col-12 col-md-4">
+                    <label for="sortBooks" class="form-label">
+                        Сортировка
+                    </label>
+
+                    <select id="sortBooks" class="form-select">
+                        <option value="default">По умолчанию</option>
+                        <option value="rating-desc">По рейтингу: сначала лучшие</option>
+                        <option value="rating-asc">По рейтингу: сначала низкие</option>
+                        <option value="title-asc">По названию: А–Я</option>
+                        <option value="title-desc">По названию: Я–А</option>
+                    </select>
+                </div>
+
             </div>
+            
 
             <!-- Карточки книг -->
             <div class="row g-4" id="booksContainer">
@@ -177,6 +236,14 @@
                             <p class="text-muted">
                                 Психология
                             </p>
+
+                            <!-- Рейтинг книги -->
+                            <div class="catalog-rating"
+                                data-book-id="blizkie_ludi">
+                                <span class="catalog-rating-stars"></span>
+                                <span class="catalog-rating-value"></span>
+                                <span class="catalog-rating-count"></span>
+                            </div>
 
                             <a
                                 href="book.html?id=blizkie_ludi"
@@ -534,6 +601,145 @@
                     </div>
                 </div>
 
+                <!-- Книга 12 -->
+                <div
+                    class="col-12 col-sm-6 col-lg-4 book-item"
+                    data-title="48 законов власти"
+                    data-author="Роберт Грин"
+                    data-genre="nonfiction"
+                >
+                    <div class="card book-card h-100">
+
+                        <img
+                            src="images/48.jpg"
+                            class="card-img-top"
+                            alt="48 законов власти"
+                        >
+
+                        <div class="card-body">
+                            <h2 class="card-title h5">
+                                48 законов власти
+                            </h2>
+
+                            <p class="card-text">
+                                Роберт Грин
+                            </p>
+
+                            <p class="text-muted">
+                                Документальная литература
+                            </p>
+
+                            <!-- Рейтинг книги -->
+                            <div class="catalog-rating"
+                                data-book-id="48">
+                                <span class="catalog-rating-stars"></span>
+                                <span class="catalog-rating-value"></span>
+                                <span class="catalog-rating-count"></span>
+                            </div>
+
+                            <a
+                                href="book.html?id=48"
+                                class="btn btn-book"
+                            >
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Книга 13 -->
+                <div
+                    class="col-12 col-sm-6 col-lg-4 book-item"
+                    data-title="Дерзкий Уайлдер"
+                    data-author="Ребекка Яррос"
+                    data-genre="romance"
+                >
+                    <div class="card book-card h-100">
+
+                        <img
+                            src="images/derzki.jpg"
+                            class="card-img-top"
+                            alt="Дерзкий Уайлдер"
+                        >
+
+                        <div class="card-body">
+                            <h2 class="card-title h5">
+                                Дерзкий Уайлдер
+                            </h2>
+
+                            <p class="card-text">
+                                Ребекка Яррос
+                            </p>
+
+                            <p class="text-muted">
+                                Любовный роман
+                            </p>
+
+                            <!-- Рейтинг книги -->
+                            <div class="catalog-rating"
+                                data-book-id="derzki">
+                                <span class="catalog-rating-stars"></span>
+                                <span class="catalog-rating-value"></span>
+                                <span class="catalog-rating-count"></span>
+                            </div>
+
+                            <a
+                                href="book.html?id=derzki"
+                                class="btn btn-book"
+                            >
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Книга 14 -->
+                <div
+                    class="col-12 col-sm-6 col-lg-4 book-item"
+                    data-title="Внутренняя опора. В любой ситуации возвращайтесь к себе"
+                    data-author="Анна Бабич"
+                    data-genre="psychology"
+                >
+                    <div class="card book-card h-100">
+
+                        <img
+                            src="images/vnutre_opora.jpg"
+                            class="card-img-top"
+                            alt="Внутренняя опора"
+                        >
+
+                        <div class="card-body">
+                            <h2 class="card-title h5">
+                                Внутренняя опора. В любой ситуации
+                                возвращайтесь к себе
+                            </h2>
+
+                            <p class="card-text">
+                                Анна Бабич
+                            </p>
+
+                            <p class="text-muted">
+                                Психология
+                            </p>
+
+                            <!-- Рейтинг книги -->
+                            <div class="catalog-rating"
+                                data-book-id="vnutre_opora">
+                                <span class="catalog-rating-stars"></span>
+                                <span class="catalog-rating-value"></span>
+                                <span class="catalog-rating-count"></span>
+                            </div>
+
+                            <a
+                                href="book.html?id=vnutre_opora"
+                                class="btn btn-book"
+                            >
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Сообщение, если книги не найдены -->
@@ -621,6 +827,12 @@
     <script src="js/catalog.js"></script>
 
     <script src="js/common.js"></script>
+
+    <script src="js/catalog-ratings.js"></script>
+
+    <script src="js/catalog-sort.js"></script>
+
+    <script src="js/catalog-randomizer.js"></script>
 
 </body>
 </html>
